@@ -1,0 +1,58 @@
+﻿
+
+@model IEnumerable<vmMovieTime>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+
+}
+<style>
+    body {
+        background-color: #17181A;
+    }
+    .movie-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .movie-item {
+        width: 200px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .movie-item-img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .movie-item p {
+        margin: 5px 0;
+        color:white;
+    }
+
+
+</style>
+
+<section class="movies movie-7 movie-box movie-modify-7-3 pt-5 page-top-margin">
+
+            <div class="movie-container ">
+                @foreach (var item in Model)
+                {
+                    <div class="movie-item">
+                        <img class="movie-item-img" src="~/Plugins/Movie/images/poster/@item.Pic" alt="Movie Thumb">
+                        <p>@item.Title</p>
+                        <p>@item.ShowDate.Value.ToString("yyyy-MM-dd")</p>
+                        <p>@item.ShowTime</p>
+                        <p>@item.HallNo</p>
+                        <p><a href="@Url.Action("TicketOrder", "TicketOrder", new {ShowNo = item.ShowNo})">選擇座位</a></p>
+                    </div>
+                }
+            </div>
+
+</section>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<vmShows>
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "item.ShowDate";
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+
+}
+
+<div class="overflow-scroll">
+    <table class="table table-bordered" id="SecurityList">
+        <tr class="table-secondary">
+            <th>
+                @Html.Partial("~/Views/PartialViews/_PartialFormCreate.cshtml")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TicketPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HallNo)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("修改", "CreateEdit", "UHOMP001_MovieShow", new { area = "User", id = item.ShowId }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("刪除", "Delete", "UHOMP001_MovieShow", new { area = "", id = item.ShowId }, new
+                {
+                    @class = "btn btn-danger",
+                    onclick = "return confirm('是否確定要刪除?');"
+                })
+                </td>
+                <td class="table-admin-nowrap text-end">
+                    @Html.DisplayFor(modelItem => item.ShowDate, "ShortDate")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HallNo)
+                </td>
+            </tr>
+        }
+    </table>
+    <div>
+        @if (SessionService.Page > 1)
+        {
+            @Html.ActionLink("First", "Index", new { page = 1 })
+            <span>&nbsp;&nbsp;</span>
+            @Html.ActionLink("Previous", "Index", new { page = SessionService.Page - 1 })
+            <span>&nbsp;&nbsp;</span>
+        }
+
+        @for (int i = Math.Max(1, SessionService.Page - 2); i < SessionService.Page; i++)
+        {
+            <span>&nbsp;&nbsp;</span>
+            @Html.ActionLink(i.ToString(), "Index", new { page = i })
+            <span>&nbsp;&nbsp;</span>
+        }
+
+        <strong>@SessionService.Page</strong>
+
+        @for (int i = SessionService.Page + 1; i <= Math.Min(SessionService.Page + 2, SessionService.TotalPage); i++)
+        {
+            <span>&nbsp;&nbsp;</span>
+            @Html.ActionLink(i.ToString(), "Index", new { page = i })
+            <span>&nbsp;&nbsp;</span>
+        }
+
+        @if (SessionService.Page < SessionService.TotalPage)
+        {
+            @Html.ActionLink("Next", "Index", new { page = SessionService.Page + 1 })
+            <span>&nbsp;&nbsp;</span>
+            @Html.ActionLink("Last", "Index", new { page = SessionService.TotalPage })
+        }
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@model vmShows
+
+
+@{
+    ViewBag.Title = "CreateEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.ShowId;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ShowId)
+        @Html.HiddenFor(model => model.MovieNo)
+        @*@Html.HiddenFor(model => model.RoleNo)
+            @Html.HiddenFor(model => model.ValidateCode)*@
+
+        <div class="row form-group">
+            @Html.LabelFor(model => model.ShowDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ShowDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.ValidationMessageFor(model => model.ShowDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.ShowTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ShowTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShowTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.TicketPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TicketPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TicketPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.Genre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Genre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Genre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.HallNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HallNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HallNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="row form-group">
+            <div class="col-md-12">
+                <input type="submit" value="@ActionService.SaveName" class="btn btn-primary" />
+                @Html.ActionLink(ActionService.ReturnIndex, ActionService.Index, ActionService.Controller, new { area = ActionService.Area }, new { @class = "btn btn-success" })
+            </div>
+        </div>
+    </div>
+}

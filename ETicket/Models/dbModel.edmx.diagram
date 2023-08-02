@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4b0a9aa9def47a19f00eb56cd584c14" Name="Diagram1">
+        <EntityTypeShape EntityType="nicedemoModel.AboutUs" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.AboutUsDetails" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="nicedemoModel.AddressBooks" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Applications" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.BookingRecord" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Calendars" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Carousels" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Categorys" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.CinemaHall" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="nicedemoModel.CityAreas" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Citys" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Clients" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="nicedemoModel.CloseDates" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="nicedemoModel.CodeBases" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="nicedemoModel.CodeDatas" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Companys" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Departments" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Employees" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="nicedemoModel.ExtensionTables" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Featureds" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="nicedemoModel.FormDetail" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="nicedemoModel.FormMaster" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="nicedemoModel.ForumBoards" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Forums" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Languages" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Logs" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="nicedemoModel.MapPositions" Width="1.5" PointX="14.75" PointY="11.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Messages" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Modules" Width="1.5" PointX="12.75" PointY="15.75" />
+        <EntityTypeShape EntityType="nicedemoModel.News" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.NewsLetter" Width="1.5" PointX="16.75" PointY="3.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Notifications" Width="1.5" PointX="16.75" PointY="6.75" />
+        <EntityTypeShape EntityType="nicedemoModel.OrderDetails" Width="1.5" PointX="16.75" PointY="10.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Orders" Width="1.5" PointX="16.75" PointY="14.75" />
+        <EntityTypeShape EntityType="nicedemoModel.OrdersStatus" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Payments" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Photos" Width="1.5" PointX="18.75" PointY="3.75" />
+        <EntityTypeShape EntityType="nicedemoModel.PricingDetails" Width="1.5" PointX="18.75" PointY="7.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Pricings" Width="1.5" PointX="18.75" PointY="10.75" />
+        <EntityTypeShape EntityType="nicedemoModel.ProductFeatureds" Width="1.5" PointX="18.75" PointY="14.75" />
+        <EntityTypeShape EntityType="nicedemoModel.ProductInventorys" Width="1.5" PointX="18.75" PointY="17.75" />
+        <EntityTypeShape EntityType="nicedemoModel.ProductPropertys" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="nicedemoModel.ProductRelations" Width="1.5" PointX="8.75" PointY="19.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Products" Width="1.5" PointX="10.75" PointY="19.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Programs" Width="1.5" PointX="12.75" PointY="19.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Promotions" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.PropertyNames" Width="1.5" PointX="20.75" PointY="4.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Propertys" Width="1.5" PointX="20.75" PointY="7.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Roles" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Seats" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Securitys" Width="1.5" PointX="20.75" PointY="13.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Services" Width="1.5" PointX="14.75" PointY="20.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Shippings" Width="1.5" PointX="16.75" PointY="20.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Shows" Width="1.5" PointX="20.75" PointY="18.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Teams" Width="1.5" PointX="4.75" PointY="21.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Titles" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="nicedemoModel.TodoLists" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Users" Width="1.5" PointX="22.75" PointY="3.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Vacations" Width="1.5" PointX="6.75" PointY="22.75" />
+        <EntityTypeShape EntityType="nicedemoModel.WorkflowDetails" Width="1.5" PointX="22.75" PointY="9.75" />
+        <EntityTypeShape EntityType="nicedemoModel.WorkflowMasters" Width="1.5" PointX="22.75" PointY="15.75" />
+        <EntityTypeShape EntityType="nicedemoModel.WorkflowRoles" Width="1.5" PointX="18.75" PointY="22.75" />
+        <EntityTypeShape EntityType="nicedemoModel.WorkflowRoleUsers" Width="1.5" PointX="22.75" PointY="20.75" />
+        <EntityTypeShape EntityType="nicedemoModel.WorkflowRoutes" Width="1.5" PointX="20.75" PointY="23.75" />
+        <AssociationConnector Association="nicedemoModel.FK_Seats_Seats" />
+        <EntityTypeShape EntityType="nicedemoModel.Movies" Width="1.5" PointX="23.375" PointY="23.75" />
+        <EntityTypeShape EntityType="nicedemoModel.Carts" Width="1.5" PointX="13.375" PointY="24.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

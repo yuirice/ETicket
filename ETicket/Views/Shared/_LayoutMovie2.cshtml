@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- === CSS === -->
+    <link href="~/Plugins/Movie/bootstrap-4.1.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Plugins/Movie/css/materialize.min.css" rel="stylesheet" />
+    <link href="~/Plugins/Movie/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Plugins/Movie/css/ionicons.css" rel="stylesheet" />
+    <link href="~/Plugins/Movie/css/app.css" rel="stylesheet" />
+    <link href="~/Plugins/Movie/css/style2.css" rel="stylesheet" />
+    <link href="~/Plugins/Movie/css/style3.css" rel="stylesheet" />
+
+    <style>
+        .aaa {
+            font-size: 20px !important;
+        }
+
+        .bbb {
+            display: inline-block;
+            height: 64px;
+            width: 64px;
+        }
+
+        .ccc {
+            position: relative;
+            margin-top: 5px;
+            margin-left: -40px;
+            font-size: 25px !important;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--=== navbar ===-->
+    <header class="header">
+        <nav class="navbar navbar-expand-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand nav-link" href="@Url.Action("Index", "Movie")"><img class="bbb" src="~/Plugins/Movie/images/small-image/AppLogo.png" alt="Main Logo"> </a>
+                <a class="nav-link ccc" href="@Url.Action("Index", "Movie")">好好用影城</a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="ion nav-more ion-android-menu"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="example-navbar" data-nav-image="assets/img/blurred-image-1.jpg">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link aaa" href="@Url.Action("Index", "Movie")">首頁</a></li>
+                        <li class="nav-item"><a class="nav-link aaa" href="@Url.Action("Movie", "Movie")">電影</a></li>
+
+                        @{ if (UserService.IsLogin)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link aaa" href="@Url.Action("Logout", "Movie")">登出</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="aaa">@UserService.UserName</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="1">
+                                        <a class="dropdown-item" href="@Url.Action("BookingRecord", "Movie")">購票紀錄</a>
+                                        @{ if (UserService.RoleNo != "Member")
+                                            {
+                                                <a class="dropdown-item" href="@Url.Action("Home", "Web")">後臺管理</a>
+                                            }
+                                        }
+                                    </div>
+                                </li>
+                                @*<li class="nav-item dropdown cart">
+                                    <a href="#" class="nav-link dropdown-toggle " id="navbarDropdownMenuLink" data-toggle="dropdown">
+                                        <i class="ion ion-android-cart" aria-hidden="true"></i>
+                                        <span class="cart-number">0</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Empty Cart <span class="text-right">0</span></a>
+                                    </div>
+                                </li>*@
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link aaa" href="@Url.Action("Login", "Movie")">登入</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link aaa" href="@Url.Action("Register", "Movie")">註冊</a>
+                                </li>
+                            } }
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+
+        @RenderBody()
+    </div>
+
+    <!--=== footer area ===-->
+    <!--<section class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-logo"><img src="~/Plugins/Movie/images/small-image/AppLogo.png" alt="footer logo">好好用影城</div>
+                    <div class="subscribe">
+                        <p>All in One digital resource management & complete eCommerce solution for selling digital products</p>
+                    </div>
+                    <div class="list-wrap">
+                        <ul class="list-inline social-links">
+                            <li class="list-inline-item"><i class="ion ion-social-twitter-outline"></i></li>
+                            <li class="list-inline-item"><i class="ion ion-social-facebook"></i></li>
+                            <li class="list-inline-item"><i class="ion ion-social-googleplus"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-item-title"><h4>Our Network</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">About us</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                            <li class=""><a href="#">Orders And Returns</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-item-title"><h4>Recent Post</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">About us</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                            <li class=""><a href="#">Orders And Returns</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-item-title"><h4>WPDM Blog</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">About us</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                            <li class=""><a href="#">Orders And Returns</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="d-md-none d-lg-block">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-item-title"><h4>Information</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">About us</a></li>
+                            <li class=""><a href="#">New Products</a></li>
+                            <li class=""><a href="#">Orders And Returns</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-item-title"><h4>My account</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">My account</a></li>
+                            <li class=""><a href="#">Order-history</a></li>
+                            <li class=""><a href="#">Wish List</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="footer-item-title"><h4>Customer Service</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">Contact us</a></li>
+                            <li class=""><a href="#">Returns</a></li>
+                            <li class=""><a href="#">Our Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-item-title"><h4>Contact Us</h4></div>
+                    <div class="just-links">
+                        <ul class="list-unstyled">
+                            <li class=""><a href="#">2506 SARYOBA ROAD, MSATGOLP</a></li>
+                            <li class=""><a href="#">+(123) 456 789</a></li>
+                            <li class=""><a href="#">info@nextlevel.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-wrap text-center">-->
+    <!--ul class="list-inline social-icon">
+        <li class="list-inline-item"><i class="ion ion-social-twitter"></i></li>
+        <li class="list-inline-item"><i class="ion ion-social-linkedin"></i></li>
+        <li class="list-inline-item"><i class="ion ion-social-dribbble-outline"></i></li>
+    </ul-->
+    <!--<div class="footer-tag">All rights Reserved | 2018</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- ==== js ==== -->
+    <script src="~/Plugins/Movie/js/jquery-2.2.3.min.js"></script>
+    <script src="~/Plugins/Movie/js/popper.min.js"></script>
+    <script src="~/Plugins/Movie/bootstrap-4.1.1-dist/js/bootstrap.min.js"></script>
+    <script src="~/Plugins/Movie/js/owl.carousel.min.js"></script>
+    <script src="~/Plugins/Movie/js/materialize.min.js"></script>
+    <script src="~/Plugins/Movie/js/app.js"></script>
+
+</body>
+</html>

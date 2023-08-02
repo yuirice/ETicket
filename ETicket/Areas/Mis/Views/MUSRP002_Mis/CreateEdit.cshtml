@@ -1,0 +1,54 @@
+@model ETicket.Models.Users
+
+@{
+    ViewBag.Title = "CreateEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ActionService.RowId = Model.Id;
+    List<SelectListItem> DepartmentList = new List<SelectListItem>();
+    List<SelectListItem> TitleList = new List<SelectListItem>();
+    List<SelectListItem> GenderList = new List<SelectListItem>();
+    List<SelectListItem> RoleList = new List<SelectListItem>();
+    using (ListItemData listData = new ListItemData())
+    {
+        DepartmentList = listData.DepartmentList();
+        TitleList = listData.TitleList();
+        GenderList = listData.GenderList();
+        RoleList = listData.RoleList();
+    }
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Password)
+    @Html.HiddenFor(model => model.UserNo)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.IsValid)
+    @Html.HiddenFor(model => model.GenderName)
+    @Html.HiddenFor(model => model.Birthday)
+    @Html.HiddenFor(model => model.ContactEmail)
+    @Html.HiddenFor(model => model.ContactTel)
+    @Html.HiddenFor(model => model.ContactAddress)
+    @Html.HiddenFor(model => model.Remark)
+    @*@Html.HiddenFor(model => model.RoleNo)*@
+    @Html.HiddenFor(model => model.ValidateCode)
+
+    <div class="row form-group">
+        @Html.LabelFor(model => model.RoleNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.RoleNo, RoleList, new { @class = "form-control selectpicker", data_live_search = "true" })
+            @Html.ValidationMessageFor(model => model.RoleNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <hr />
+    <div class="row form-group">
+        <div class="col-md-12">
+            @Html.Partial("~/Views/PartialViews/_PartialFormSumit.cshtml")
+        </div>
+    </div>
+</div>
+}

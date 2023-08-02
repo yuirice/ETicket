@@ -1,0 +1,52 @@
+﻿@model IEnumerable<vmBookingRecord>
+@{
+    ViewBag.Title = "SaveSelectedSeats";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+
+    string[] div = Session["div"] as string[];
+    
+
+
+}
+<style>
+    body {
+        background-color: #17181A;
+    }
+
+    
+</style>
+<!--=== movies 7 ===-->
+<section class="movies movie-7 movie-box movie-modify-7-3 pt-5 page-top-margin">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+</section>
+
+<div class="card mt-2 mx-auto" style="width:600px;">
+    <div class="card-header text-white bg-primary">
+        <h3 class="text-center">系統訊息提示</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="mb-5">電影: @Model.FirstOrDefault().Title </h5>
+        <h5 class="mb-5">場次: @Model.FirstOrDefault().ShowDate.Value.ToString("yyyy-MM-dd") , @Model.FirstOrDefault().ShowTime </h5>
+        <h5 class="mb-5">影廳: @Model.FirstOrDefault().HallNo </h5>
+        <h5 class="mb-5">
+             座位: 
+        </h5>
+            @{
+                foreach (string item in div)
+                {
+                    <p>@item</p>
+                }
+                CartService.MovieTitle = @Model.FirstOrDefault().Title;
+            }
+        
+
+        <h5 class="mb-5">是否確定購票? </h5>
+        @Html.ActionLink("確定購買", "Confirm", "TicketOrder", new { area = "" }, new { @class = "btn btnprimary" })
+        @Html.ActionLink("取消", "Index", "Movie", new { area = "" }, new { @class = "btn" })
+    </div>
+</div>

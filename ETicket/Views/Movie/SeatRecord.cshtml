@@ -1,0 +1,45 @@
+﻿@model IEnumerable<vmBookingRecord>
+@{
+    ViewBag.Title = "BookingRecord";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+}
+
+<style>
+    body {
+        background-color: #17181A;
+    }
+
+    th {
+        color: white;
+    }
+
+    td {
+        color: white;
+    }
+</style>
+<!--=== movies 7 ===-->
+<section class="movies movie-7 movie-box movie-modify-7-3 pt-5 page-top-margin">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+</section>
+
+<table>
+    <thead>
+        <tr>
+            <th>座位</th>
+            <!-- Add more table headers as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SeatNo </td>
+            </tr>
+        }
+    </tbody>
+</table>

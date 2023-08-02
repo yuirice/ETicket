@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+<div class="padding-all">
+    <div class="header">
+        <h1>登入頁面</h1>
+    </div>
+
+    <div class="design-w3l">
+        <div class="mail-form-agile">
+            @using (Html.BeginForm())
+            {
+                <form action="#" method="post">
+                    <input type="text" id="UserNo" name="UserNo" placeholder="帳號或信箱..." required="" />
+
+                    <input type="password" id="Password" name="Password" class="padding" placeholder="密碼" required="" />
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <p style="color: red;">@ViewBag.ErrorMessage</p>
+                    }
+                    <div class="row form-group">
+                        <div class="control-label col-md-3 fw-bold" style="color: #b7e9a3">驗證碼</div>
+                        <div class="control-label col-md-9">
+                            <div class="captcha-code code dynamic-code float-left mr-2" style="color:white"></div>
+                            <div class="captcha-reload float-left" role="button"><i class="ion-ios-loop-strong" style="color:red"></i></div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        @*<div class="control-label col-md-3"></div>*@
+                        <div class="col-md-12">
+                            <input type="text" class="form-control padding" id="captcha-input" required autocomplete="off" placeholder="請輸入驗證碼 ...">
+                            <span id="errCaptcha"></span>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="登入">
+
+
+                </form>
+            }
+        </div>
+        <div class="clear"> </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2017  Master  Login form. All Rights Reserved | Design by  <a href="https://w3layouts.com/">  w3layouts </a></p>
+    </div>
+</div>
+
+@section sectionhead{
+    <link href="@Url.Content("~/Plugins/Captcha/captcha.css")" rel="stylesheet" />
+}
+
+@section sectionbody{
+    <script src="@Url.Content("~/Plugins/Captcha/captcha.js")"></script>
+}

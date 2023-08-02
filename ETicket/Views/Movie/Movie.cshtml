@@ -1,0 +1,286 @@
+﻿@using ETicket.Models
+
+@model List<ETicket.Models.Movies>
+@{
+    ViewBag.Title = "Movie";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+
+    List<Movies> Carousel1 = new List<Movies>();
+    List<Movies> Carousel2 = new List<Movies>();
+    List<Movies> Carousel3 = new List<Movies>();
+
+
+    if (Model.Count >= 6)
+    { Carousel1 = Model.Take(6).ToList(); }
+    else
+    { Carousel1 = Model.ToList(); }
+
+    if (Model.Count > 6)
+    {
+        if (Model.Count >= 12)
+        { Carousel2 = Model.Skip(6).Take(6).ToList(); }
+        else
+        { Carousel2 = Model.Skip(6).ToList(); }
+    }
+
+    if (Model.Count > 12)
+    {
+        if (Model.Count >= 18)
+        { Carousel3 = Model.Skip(12).Take(6).ToList(); }
+        else
+        { Carousel3 = Model.Skip(12).ToList(); }
+    }
+
+
+
+}
+
+<!--=== movies 7 ===-->
+<section class="movies movie-7 movie-box movie-modify-7-3 pt-5 page-top-margin">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+ 
+</section>
+
+<!--=== movies 7 ===-->
+<!--=== movies 1 ===-->
+<section class="movies movie-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrap-movie">
+                    <div class="section-title-wrap">
+                        <div class="section-title">熱門電影</div>
+                    </div>
+
+                    @if (Carousel1.Count > 0)
+                    {@Html.Partial("~/Views/PartialViews/_PartialCarousel.cshtml", Carousel1)}
+
+                   
+
+
+                    @*<div class="movie-showcase-1 owl-carousel">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <div class="movie-item">
+                                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/@item.pic" alt="Movie Thumb">
+                                    <div class="movie-item-overlay">
+                                        <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = item.MovieId})">@item.Title</a></div>
+                                        <div class="movie-item-rate"><i class="ion ion-android-star"></i>9/10</div>
+                                        <div class="movie-item-genre">@item.Genre</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</section>
+
+<!--=== movies 2 ===-->
+<section class="movies movie-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrap-movie">
+                    <div class="section-title-wrap">
+                        <div class="section-title">One Piece</div>
+                    </div>
+                    @if (Carousel2.Count > 0)
+                    {@Html.Partial("~/Views/PartialViews/_PartialCarousel.cshtml", Carousel2)}
+
+                    @*@if (Carousel3.Count > 0)
+                    {@Html.Partial("~/Views/PartialViews/_PartialCarousel.cshtml", Carousel3)}*@
+                    @*<div class="movie-showcase-2 owl-carousel">
+                        <div class="item">
+                            <div class="movie-item">
+                                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/1.jpg" alt="Movie Thumb">
+                                <div class="movie-item-overlay">
+                                    <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = 7})">黃金島大冒險</a></div>
+                                    <div class="movie-item-genre"><span>2016 |</span>Action, Crime, Drama</div>
+                                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9.5</div>
+                                    <div class="movie-item-price">$39.00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="movie-item">
+                                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/2.jpg" alt="Movie Thumb">
+                                <div class="movie-item-overlay">
+                                    <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = 8})">發條島的冒險</a></div>
+                                    <div class="movie-item-genre"><span>2016 |</span>Action, Crime, Drama</div>
+                                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9.5</div>
+                                    <div class="movie-item-price">$39.00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="movie-item">
+                                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/3.jpg" alt="Movie Thumb">
+                                <div class="movie-item-overlay">
+                                    <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = 9})">珍獸島之喬巴王國</a></div>
+                                    <div class="movie-item-genre"><span>2016 |</span>Action, Crime, Drama</div>
+                                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9.5</div>
+                                    <div class="movie-item-price">$39.00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="movie-item">
+                                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/4.jpg" alt="Movie Thumb">
+                                <div class="movie-item-overlay">
+                                    <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = 10})">死亡盡頭的冒險</a></div>
+                                    <div class="movie-item-genre"><span>2016 |</span>Action, Crime, Drama</div>
+                                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9.5</div>
+                                    <div class="movie-item-price">$39.00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="movie-item">
+                                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/5.jpg" alt="Movie Thumb">
+                                <div class="movie-item-overlay">
+                                    <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = 11})">被詛咒的聖劍</a></div>
+                                    <div class="movie-item-genre"><span>2016 |</span>Action, Crime, Drama</div>
+                                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9.5</div>
+                                    <div class="movie-item-price">$39.00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="movie-item">
+                                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/6.jpg" alt="Movie Thumb">
+                                <div class="movie-item-overlay">
+                                    <div class="movie-item-title"><a href="@Url.Action("TicketOrder", "Movie", new {id = 12})">祭典男爵與神祕島</a></div>
+                                    <div class="movie-item-genre"><span>2016 |</span>Action, Crime, Drama</div>
+                                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9.5</div>
+                                    <div class="movie-item-price">$39.00</div>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+</section>
+
+<!--=== movies 3 ===-->
+<section class="movies movie-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="wrap-movie">
+                        <div class="section-title-wrap">
+                            <div class="section-title">TV Show / Movies</div>
+                        </div>
+                        @if (Carousel3.Count > 0)
+                        {@Html.Partial("~/Views/PartialViews/_PartialCarousel.cshtml", Carousel3)}
+                    @*<div class="movie-showcase-3 owl-carousel">
+        <div class="item">
+            <div class="movie-item">
+                <div class="movie-item-img-wrap">
+                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/The-Witcher-3-Wild-Hunt.jpg" alt="Movie Thumb">
+                    <div class="movie-item-rate">9.5</div>
+                </div>
+                <div class="movie-item-overlay">
+                    <div class="movie-item-genre"><span>2017 |</span>Action, Crime</div>
+                    <div class="movie-item-price">$49.00</div>
+                    <div class="movie-item-title">The Witcher 3</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="movie-item">
+                <div class="movie-item-img-wrap">
+                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/uncharted-4.jpg" alt="Movie Thumb">
+                    <div class="movie-item-rate">9.5</div>
+                </div>
+                <div class="movie-item-overlay">
+                    <div class="movie-item-genre"><span>2017 |</span>Action, Crime</div>
+                    <div class="movie-item-price">$49.00</div>
+                    <div class="movie-item-title">Uncharted 4</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="movie-item">
+                <div class="movie-item-img-wrap">
+                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/batman-arkham-knight.jpg" alt="Movie Thumb">
+                    <div class="movie-item-rate">9.5</div>
+                </div>
+                <div class="movie-item-overlay">
+                    <div class="movie-item-genre"><span>2017 |</span>Action, Crime</div>
+                    <div class="movie-item-price">$49.00</div>
+                    <div class="movie-item-title">Batman arkham knight</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="movie-item">
+                <div class="movie-item-img-wrap">
+                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/tomb-rider.jpg" alt="Movie Thumb">
+                    <div class="movie-item-rate">9.5</div>
+                </div>
+                <div class="movie-item-overlay">
+                    <div class="movie-item-genre"><span>2017 |</span>Action, Crime</div>
+                    <div class="movie-item-price">$49.00</div>
+                    <div class="movie-item-title">Tomb-rider</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="movie-item">
+                <div class="movie-item-img-wrap">
+                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/dark.png" alt="Movie Thumb">
+                    <div class="movie-item-rate">9.5</div>
+                </div>
+                <div class="movie-item-overlay">
+                    <div class="movie-item-genre"><span>2017 |</span>Action, Crime</div>
+                    <div class="movie-item-price">$49.00</div>
+                    <div class="movie-item-title">Dark Night</div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="movie-item">
+                <div class="movie-item-img-wrap">
+                    <img class="movie-item-img" src="~/Plugins/Movie/images/poster/Assassin-s-Creed-Syndicate.jpg" alt="Movie Thumb">
+                    <div class="movie-item-rate">9.5</div>
+                </div>
+                <div class="movie-item-overlay">
+                    <div class="movie-item-genre"><span>2017 |</span>Action, Crime</div>
+                    <div class="movie-item-price">$49.00</div>
+                    <div class="movie-item-title">Assassin's Creed</div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<!--=== Modal For All Videos ===-->
+<div class="modal popup-video fade" id="call-video" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="close" data-dismiss="modal" aria-label="Close"><i class="ion ion-ios-close-outline"></i></div>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

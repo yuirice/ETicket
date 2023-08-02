@@ -1,0 +1,17 @@
+﻿@*@model List<ETicket.Models.Movies>*@
+
+<div class="movie-showcase-1 owl-carousel">
+    @foreach (var item in Model)
+    {
+        <div class="item">
+            <div class="movie-item">
+                <img class="movie-item-img" src="~/Plugins/Movie/images/poster/@item.pic" alt="Movie Thumb">
+                <div class="movie-item-overlay">
+                    <div class="movie-item-title"><a href="@Url.Action("Order", "TicketOrder", new {MovieNo = item.MovieNo})">@item.Title</a></div>
+                    <div class="movie-item-rate"><i class="ion ion-android-star"></i>9/10</div>
+                    <div class="movie-item-genre">@item.Genre</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
